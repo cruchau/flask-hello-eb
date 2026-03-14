@@ -1,0 +1,27 @@
+version: 0.2
+
+env:
+  variables:
+    APP_NAME: flask-hello-eb
+    ENV_NAME: flask-hello-env
+    REGION: us-east-1
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo Installing dependencies
+      - pip install -r requirements.txt
+      - pip install awsebcli
+
+  pre_build:
+    commands:
+      - echo Logging into AWS
+      - aws configure set region $REGION
+
+  build:
+    commands:
+      - echo Deploying to Elastic Beanstalk
+      - eb init $APP_NAME --platform python-3.11 --region $REGION
+      - eb deploy $ENV_NAME
