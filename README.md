@@ -39,6 +39,7 @@ Visit the Elastic Beanstalk URL to see the app serving a “Hello, World” requ
 ```bash
 git clone <your-repo-url>
 cd flask-hello-eb
+```
 
 ---
 
@@ -62,16 +63,19 @@ flask-hello-eb/
 ```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
 2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+``` 
 
 3. Install EB CLI if not installed:
 ```bash
 pip install awsebcli
 eb --version
+``` 
 
 ---
 
@@ -81,6 +85,7 @@ eb --version
 export FLASK_APP=application.py
 export FLASK_ENV=development
 flask run
+```
 
 ---
 
@@ -90,19 +95,22 @@ flask run
 
 ```bash
 eb init -p python-3.10 flask-hello-eb
+```
 
 2. Create an environment (example flask-env):
 
 ```bash
 eb create flask-env
+```
 
 3. Deploy the app:
 
 ```bash
 eb deploy
+```
 
 4. Open your application in a browser:
 
 ```bash 
 eb open
-
+``` 
